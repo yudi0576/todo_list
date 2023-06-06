@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:todo_list/models/notes_operation.dart';
 import 'package:todo_list/screen/add_screen.dart';
 import 'package:todo_list/screen/notes_card.dart';
 
@@ -35,16 +33,12 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: Consumer<NotesOperation>(
-        builder: (context, NotesOperation data, child) {
-          return ListView.builder(
-            itemCount: data.getNotes.length,
+      body: ListView.builder(
+            itemCount: 3,
             itemBuilder: (context, index) {
-              return NotesCard(note: data.getNotes[index]);
-            },
-          );
-        },
-      ),
+              return NotesCard();
+            }
+          )
     );
   }
 }

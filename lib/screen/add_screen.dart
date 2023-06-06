@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:todo_list/models/notes_operation.dart';
 
 class AddScreen extends StatelessWidget {
   const AddScreen({super.key});
@@ -67,8 +65,6 @@ class AddScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Provider.of<NotesOperation>(context, listen: false)
-                    .addNewNote(titleText, descriptionText);
                 Navigator.pop(context);
               },
               style: TextButton.styleFrom(
