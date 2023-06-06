@@ -5,8 +5,6 @@ class AddScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    late String titleText;
-    late String descriptionText;
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
@@ -41,7 +39,7 @@ class AddScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               onChanged: (value) {
-                titleText = value;
+                
               },
             ),
             Expanded(
@@ -59,7 +57,7 @@ class AddScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onChanged: (value) {
-                  descriptionText = value;
+                  
                 },
               ),
             ),
