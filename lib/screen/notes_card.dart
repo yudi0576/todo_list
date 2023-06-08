@@ -2,34 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/models/note.dart';
 
 class NotesCard extends StatelessWidget {
+  final String title;
+  final String content;
+  final VoidCallback onDelete;
 
-  const NotesCard({super.key});
-  final Note note;
-  const NotesCard({super.key, required this.note});
+  const NotesCard({
+    required this.title,
+    required this.content,
+    required this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15),
-      padding: const EdgeInsets.all(15),
-      height: 150,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            note.title,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            "Description",
-            style: const TextStyle(fontSize: 17),
-          ),
-        ],
+    return Card(
+      elevation: 4.0,
+      margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: ListTile(
+        title: Text(title),
+        subtitle: Text(content),
+        trailing: IconButton(
+          icon: Icon(Icons.delete),
+          onPressed: onDelete,
+        ),
       ),
     );
   }
