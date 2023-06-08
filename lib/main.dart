@@ -7,10 +7,14 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override  
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context) 
+    return ChangeNotifierProvider<NotesOperation>(
+      create: (context) => NotesOperation(),
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeScreen(),
       );
+      )
+    
   }
-}
+

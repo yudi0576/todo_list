@@ -33,12 +33,15 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: ListView.builder(
-            itemCount: 3,
+      body: Consumer<NotesOperation>(
+        builder: (context, data, child) {
+        return ListView.builder(
+            itemCount: data.getNotes.length,
             itemBuilder: (context, index) {
-              return NotesCard();
-            }
-          )
+              return NotesCard(note: data.getNotes[index]);
+            });
+        },
+      )
     );
   }
 }

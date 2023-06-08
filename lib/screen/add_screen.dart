@@ -5,6 +5,9 @@ class AddScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  String titleText;
+  String descriptionText;
+
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
@@ -39,6 +42,7 @@ class AddScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               onChanged: (value) {
+                titleText = value;
                 
               },
             ),
@@ -57,12 +61,13 @@ class AddScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onChanged: (value) {
-                  
+                  descriptionText = value;
                 },
               ),
             ),
             TextButton(
               onPressed: () {
+                context.read<NotesOperation>().addNewNote(titleNext, descriptionText);
                 Navigator.pop(context);
               },
               style: TextButton.styleFrom(

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/models/note.dart';
 
 class NotesCard extends StatelessWidget {
 
   const NotesCard({super.key});
+  final Note note;
+  const NotesCard({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class NotesCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Title",
+            note.title,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 5),
